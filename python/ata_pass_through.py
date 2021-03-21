@@ -165,12 +165,14 @@ def GetSmartsSgIo(dev, verbose=False):
     print("Sent info to DB.")
   return
 
-verbose = False
-if len(sys.argv) > 2:
-  verbose = (sys.argv[2].lower() == 'true')
 
-if not verbose:
-  while(True):
+if __name__ == '__main__':
+  verbose = False
+  if len(sys.argv) > 2:
+    verbose = (sys.argv[2].lower() == 'true')
+
+  if not verbose:
+    while(True):
+      GetSmartsSgIo(sys.argv[1], verbose)
+  else:
     GetSmartsSgIo(sys.argv[1], verbose)
-else:
-  GetSmartsSgIo(sys.argv[1], verbose)
